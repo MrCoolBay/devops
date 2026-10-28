@@ -1,5 +1,6 @@
 module "cluster" {
   source = "./modules/cluster"
+  nom    = var.nom_cluster
 }
 
 provider "helm" {
@@ -12,7 +13,8 @@ provider "helm" {
 }
 
 module "argocd" {
-  source = "./modules/argocd"
+  source        = "./modules/argocd"
+  version_chart = var.version_argocd
 }
 
 moved {
